@@ -1,0 +1,6 @@
+{
+  "name": "SyncFyre - Operating System for Modern Gyms",
+  "description": "Premium B2B SaaS platform for gym management, recurring billing, attendance, automated access control, and AI growth analytics.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
