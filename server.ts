@@ -89,7 +89,7 @@ async function saveDemoRequestToSupabase(payload: ReturnType<typeof normalizeDem
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = 3307;
 
   app.use(express.json());
 
