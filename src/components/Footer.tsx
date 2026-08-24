@@ -1,6 +1,7 @@
 import React from 'react';
-import { ShieldCheck, ArrowRight, Github, Twitter, Linkedin, Map } from 'lucide-react';
-import { SyncFyreLogo } from './SyncFyreLogo';
+import { ArrowRight, Map, LogIn } from 'lucide-react';
+
+const FOOTER_BRAND_URL = new URL('../../assets/syncfyre-footer-brand.png', import.meta.url).href;
 
 interface FooterProps {
   onNavigate: (pageId: string) => void;
@@ -18,11 +19,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenDemoModal, onJ
           
           {/* Brand Info */}
           <div className="md:col-span-4 space-y-4">
-            <div className="inline-block">
-              <SyncFyreLogo
-                height="h-9 sm:h-10 md:h-11"
-                asset="footer"
-                shellClassName="rounded-2xl bg-white px-4 py-3 shadow-[0_18px_45px_rgba(15,23,42,0.28)] ring-1 ring-white/90"
+            {/* Logo with white background */}
+            <div className="inline-block rounded-2xl bg-white px-5 py-3 shadow-[0_18px_45px_rgba(15,23,42,0.28)] ring-1 ring-slate-200/80">
+              <img
+                src={FOOTER_BRAND_URL}
+                alt="SyncFyre"
+                className="h-10 sm:h-12 object-contain"
               />
             </div>
 
@@ -35,8 +37,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenDemoModal, onJ
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span>All Systems Operational • 99.99% Uptime SLA</span>
+              <span>All Systems Operational Â· 99.99% Uptime SLA</span>
             </div>
+
+            {/* Login button */}
+            <a
+              href="http://gym.syncfyre.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-slate-200 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-600 transition-all shadow-sm"
+            >
+              <LogIn className="w-4 h-4 text-[#e14024]" />
+              <span>Log in to Portal</span>
+            </a>
           </div>
 
           {/* Nav Links Column 1 */}
@@ -92,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenDemoModal, onJ
         {/* Bottom Section */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-400">
           <div>
-            <div>© 2026 Syncfyre. All rights reserved.</div>
+            <div>ï¿½ 2026 Syncfyre. All rights reserved.</div>
             <div>Powered by Synckraft Technologies Pvt. Ltd.</div>
           </div>
 

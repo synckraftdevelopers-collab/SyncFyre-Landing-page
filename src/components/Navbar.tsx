@@ -46,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const handleLoginRedirect = () => {
     setMobileMenuOpen(false);
-    window.location.href = 'https://syncfyre.com/';
+    window.open('http://gym.syncfyre.com/', '_blank', 'noopener,noreferrer');
   };
 
   const handleLinkClick = (pageId: string, sectionId?: string) => {
@@ -444,6 +444,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     </header>
   );
 };
+
 
 
 

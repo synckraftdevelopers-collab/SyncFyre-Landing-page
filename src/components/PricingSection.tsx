@@ -56,11 +56,11 @@ const PLANS: Plan[] = [
     name: 'Starter',
     description: 'Perfect for new gyms and fitness studios.',
     monthlyPrice: 1499,
-    monthlyDisplayPrice: '₹1,499',
+    monthlyDisplayPrice: 'â‚¹1,499',
     yearlyTotal: 14390,
-    yearlyDisplayPrice: '₹14,390',
-    yearlyMonthlyEquivalent: '₹1,199',
-    savingCaption: 'Save ₹3,598 annually',
+    yearlyDisplayPrice: 'â‚¹14,390',
+    yearlyMonthlyEquivalent: 'â‚¹1,199',
+    savingCaption: 'Save â‚¹3,598 annually',
     buttonText: 'Start Free Trial',
     features: [
       'Up to 500 Members',
@@ -79,11 +79,11 @@ const PLANS: Plan[] = [
     name: 'Professional',
     description: 'Perfect for growing gyms.',
     monthlyPrice: 3999,
-    monthlyDisplayPrice: '₹3,999',
+    monthlyDisplayPrice: 'â‚¹3,999',
     yearlyTotal: 38390,
-    yearlyDisplayPrice: '₹38,390',
-    yearlyMonthlyEquivalent: '₹3,199',
-    savingCaption: 'Save ₹9,598 annually',
+    yearlyDisplayPrice: 'â‚¹38,390',
+    yearlyMonthlyEquivalent: 'â‚¹3,199',
+    savingCaption: 'Save â‚¹9,598 annually',
     buttonText: 'Start Free Trial',
     highlighted: true,
     badge: 'MOST POPULAR',
@@ -201,7 +201,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenDemoModal 
           </h2>
 
           <p className="text-slate-600 text-base sm:text-lg lg:text-xl font-normal leading-relaxed">
-            Whether you're opening your first fitness studio or managing multiple branches, choose the plan that fits your business today—and upgrade anytime.
+            Whether you're opening your first fitness studio or managing multiple branches, choose the plan that fits your business todayâ€”and upgrade anytime.
           </p>
 
           {/* BILLING TOGGLE SWITCH */}
@@ -325,7 +325,16 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenDemoModal 
             return (
               <div
                 key={plan.id}
-                className={`rounded-[24px] transition-all duration-300 flex flex-col justify-between relative ${
+                role="button"
+                tabIndex={0}
+                onClick={onOpenDemoModal}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    onOpenDemoModal();
+                  }
+                }}
+                className={`rounded-[24px] transition-all duration-300 flex flex-col justify-between relative cursor-pointer ${
                   isHighlighted
                     ? 'bg-white border-2 border-[#e14024] shadow-2xl shadow-[#e14024]/15 ring-4 ring-[#e14024]/10 lg:-translate-y-3 z-10 p-7 sm:p-9'
                     : 'bg-white/90 backdrop-blur-sm border border-slate-200/90 hover:border-slate-300 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:-translate-y-1.5 p-7 sm:p-8'
@@ -581,9 +590,9 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onOpenDemoModal 
           </div>
 
           <div className="relative z-10 text-xs text-slate-400 font-mono flex items-center justify-center gap-6 pt-2">
-            <span>✓ No credit card required</span>
-            <span>✓ Instant setup</span>
-            <span>✓ Cancel anytime</span>
+            <span>âœ“ No credit card required</span>
+            <span>âœ“ Instant setup</span>
+            <span>âœ“ Cancel anytime</span>
           </div>
         </div>
 

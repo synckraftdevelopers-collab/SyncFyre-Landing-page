@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- White rounded background -->
+  <rect width="100" height="100" rx="20" fill="#ffffff"/>
+
+  <!-- Navy blue double-S mark (left side) -->
+  <!-- Top horizontal bar -->
+  <rect x="14" y="16" width="36" height="10" rx="3" fill="#1e3a5f"/>
+  <!-- Top-left vertical connector -->
+  <rect x="14" y="16" width="10" height="22" rx="3" fill="#1e3a5f"/>
+  <!-- Middle horizontal bar -->
+  <rect x="14" y="28" width="36" height="10" rx="3" fill="#1e3a5f"/>
+  <!-- Bottom-right vertical connector -->
+  <rect x="40" y="38" width="10" height="22" rx="3" fill="#1e3a5f"/>
+  <!-- Bottom horizontal bar -->
+  <rect x="14" y="50" width="36" height="10" rx="3" fill="#1e3a5f"/>
+
+  <!-- Red lightning bolt / forward arrow (right side) -->
+  <polygon points="55,16 75,16 62,46 76,46 45,84 58,52 44,52" fill="#e14024"/>
+</svg>
