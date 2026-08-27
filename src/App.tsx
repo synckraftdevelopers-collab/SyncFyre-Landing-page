@@ -3,6 +3,10 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { BusinessTypeId } from './types';
 import { ArrowLeft } from 'lucide-react';
+import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
+import { TermsAndConditionsPage } from './components/TermsAndConditionsPage';
+import { DisclaimerPage } from './components/DisclaimerPage';
+import { CancellationRefundPolicyPage } from './components/CancellationRefundPolicyPage';
 
 const Hero = lazy(() => import('./components/Hero').then((module) => ({ default: module.Hero })));
 const TrustedBrandsSection = lazy(() =>
@@ -73,6 +77,11 @@ export default function App() {
   const [selectedPersona, setSelectedPersona] = useState<BusinessTypeId>('gym_club');
 
   useEffect(() => {
+    if (window.location.pathname === '/privacy-policy' || window.location.pathname === '/terms-and-conditions' || window.location.pathname === '/disclaimer' || window.location.pathname === '/cancellation-and-refund-policy') {
+      setCurrentPage(window.location.pathname === '/terms-and-conditions' ? 'terms-and-conditions' : window.location.pathname === '/disclaimer' ? 'disclaimer' : window.location.pathname === '/cancellation-and-refund-policy' ? 'cancellation-and-refund-policy' : 'privacy-policy');
+      return;
+    }
+
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
       if (['home', 'playground', 'features', 'solutions', 'benchmark', 'calculator', 'pricing', 'case-studies', 'sitemap'].includes(hash)) {
@@ -86,6 +95,12 @@ export default function App() {
   }, []);
 
   const handleNavigate = (pageId: string) => {
+    if (pageId === 'privacy-policy' || pageId === 'terms-and-conditions' || pageId === 'disclaimer' || pageId === 'cancellation-and-refund-policy') {
+      setCurrentPage(pageId);
+      window.history.pushState({}, '', pageId === 'terms-and-conditions' ? '/terms-and-conditions' : pageId === 'disclaimer' ? '/disclaimer' : pageId === 'cancellation-and-refund-policy' ? '/cancellation-and-refund-policy' : '/privacy-policy');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     setCurrentPage(pageId);
     window.location.hash = pageId;
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -297,6 +312,19 @@ export default function App() {
               onOpenDemoModal={() => setDemoModalOpen(true)}
             />
           )}
+          {currentPage === 'privacy-policy' && (
+            <PrivacyPolicyPage onNavigate={handleNavigate} />
+          )}
+          {currentPage === 'terms-and-conditions' && (
+            <TermsAndConditionsPage onNavigate={handleNavigate} />
+          )}
+          {currentPage === 'disclaimer' && (
+            <DisclaimerPage onNavigate={handleNavigate} />
+          )}
+          {currentPage === 'cancellation-and-refund-policy' && (
+            <CancellationRefundPolicyPage onNavigate={handleNavigate} />
+          )}
+
         </Suspense>
       </main>
 
@@ -315,3 +343,4 @@ export default function App() {
     </div>
   );
 }
+

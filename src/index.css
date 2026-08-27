@@ -93,3 +93,65 @@ h1, h2, h3, h4, h5, h6 {
   animation-play-state: paused;
 }
 
+
+/* Editorial legal-document treatment */
+.legal-document {
+  background: #faf9f6;
+  color: #30302d;
+}
+.legal-document .pointer-events-none, .legal-document-header > .absolute { display: none !important; }
+.legal-document-wrap { position: relative; }
+.legal-document-header {
+  overflow: visible !important;
+  background: transparent !important;
+  color: #20201d !important;
+  border-bottom: 1px solid #dedbd3;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 0 1.5rem !important;
+}
+.legal-document-header .relative { position: static; }
+.legal-document-header h1 {
+  max-width: 760px;
+  color: #242421 !important;
+  font-size: clamp(2rem, 4vw, 3.2rem) !important;
+  line-height: 1.05;
+}
+.legal-document-header p { color: #6e6b63 !important; }
+.legal-document-header strong { color: #34332f !important; }
+.legal-document-header > div > div:last-child { color: #77736a !important; border-color: #dedbd3 !important; }
+.legal-document-header .inline-flex {
+  border: 0 !important;
+  background: transparent !important;
+  color: #d13b22 !important;
+  padding: 0 !important;
+  letter-spacing: .16em;
+}
+.legal-document-header .inline-flex svg { display: none; }
+.legal-document-header .hidden { color: #a19c91 !important; }
+.legal-document-body {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.legal-prose { max-width: 760px !important; font-size: .9rem; }
+.legal-prose > p:first-child { margin-top: 0; }
+.legal-prose p { color: #55534d; line-height: 1.75; }
+.legal-prose h2 {
+  color: #292824;
+  font-size: 1.1rem !important;
+  line-height: 1.25;
+  margin-top: 2.75rem !important;
+  padding-top: 1.1rem !important;
+  border-top: 1px solid #e7e3da !important;
+}
+.legal-prose h3 { color: #d13b22 !important; font-size: .95rem !important; }
+.legal-prose ul { margin-top: .45rem; margin-bottom: 1.2rem; }
+.legal-prose li { color: #55534d; line-height: 1.65; }
+.legal-prose li::marker { color: #e14024; }
+.legal-document aside { border-color: #dedbd3; }
+@media (max-width: 1023px) {
+  .legal-document aside { display: none; }
+}

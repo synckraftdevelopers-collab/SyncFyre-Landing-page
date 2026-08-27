@@ -89,7 +89,9 @@ async function saveDemoRequestToSupabase(payload: ReturnType<typeof normalizeDem
 
 async function startServer() {
   const app = express();
-  const PORT = 3307;
+  const rawPort = process.env.PORT;
+  const parsedPort = rawPort ? Number.parseInt(rawPort, 10) : NaN;
+  const PORT = Number.isInteger(parsedPort) && parsedPort > 0 ? parsedPort : 3307;
 
   app.use(express.json());
 
@@ -209,8 +211,20 @@ When asked for workflows, WhatsApp templates, schedules, job cards, tooth charts
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
+  const server = app.listen(PORT, "0.0.0.0", () => {
     console.log(`SyncFyre Multi-Vertical SaaS Server running at http://0.0.0.0:${PORT}`);
+  });
+
+  server.on("error", (error: NodeJS.ErrnoException) => {
+    if (error.code === "EADDRINUSE") {
+      console.error(
+        `Port ${PORT} is already in use. Stop the existing process or restart with PORT=<new-port>.`,
+      );
+      process.exit(1);
+    }
+
+    console.error("Failed to start HTTP server:", error);
+    process.exit(1);
   });
 }
 
@@ -218,3 +232,5 @@ startServer().catch((err) => {
   console.error("Failed to start server:", err);
   process.exit(1);
 });
+
+

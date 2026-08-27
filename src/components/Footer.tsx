@@ -114,8 +114,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenDemoModal, onJ
               <Map className="w-3.5 h-3.5 text-[#e14024]" />
               <span>Sitemap</span>
             </button>
-            <a href="#pricing" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
-            <a href="#pricing" className="hover:text-slate-300 transition-colors">Terms of Service</a>
+            <button onClick={() => onNavigate('privacy-policy')} className="hover:text-slate-300 transition-colors">Privacy Policy</button>
+            <button onClick={() => onNavigate('terms-and-conditions')} className="hover:text-slate-300 transition-colors">Terms of Service</button>
+            <button onClick={() => onNavigate('disclaimer')} className="hover:text-slate-300 transition-colors">Disclaimer</button>
+            <button onClick={() => onNavigate('cancellation-and-refund-policy')} className="hover:text-slate-300 transition-colors">Cancellation & Refund Policy</button>
           </div>
         </div>
 

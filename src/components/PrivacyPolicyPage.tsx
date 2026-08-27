@@ -1,0 +1,87 @@
+import React from 'react';
+import { ArrowLeft, ShieldCheck } from 'lucide-react';
+
+interface PolicySection {
+  title: string;
+  paragraphs?: string[];
+  paragraphsAfter?: string[];
+  subsections?: { title: string; paragraphs?: string[]; bullets?: string[]; paragraphsAfter?: string[] }[];
+  bullets?: string[];
+}
+
+const policySections: PolicySection[] = [
+  {
+    title: '1. Scope',
+    paragraphs: [
+      'This Privacy Policy applies to personal data processed by Synckraft in connection with:',
+    ],
+    bullets: ['Syncfyre websites', 'Syncfyre applications', 'business-management software', 'customer support', 'demonstrations and trials', 'subscriptions', 'marketing', 'integrations', 'communications', 'account administration'],
+    paragraphsAfter: ['Businesses using Syncfyre may separately collect personal data about their customers, members, employees, trainers, patients, leads, or other individuals.', 'In many such circumstances, the business using Syncfyre determines why the information is collected and Synckraft processes that information to provide the software.'],
+  },
+  {
+    title: '2. Information We May Collect',
+    paragraphs: ['Depending on how Syncfyre is used, we may process:'],
+    subsections: [
+      { title: 'Account Information', bullets: ['full name', 'business name', 'username', 'email address', 'mobile number', 'designation', 'branch/location', 'account credentials'] },
+      { title: 'Business Information', bullets: ['business address', 'GST or tax details', 'industry', 'operating locations', 'subscription information', 'staff details', 'business settings'] },
+      { title: 'Customer and Member Data', paragraphs: ['Our customers may store information including:'], bullets: ['names', 'phone numbers', 'email addresses', 'date of birth', 'gender where voluntarily provided and lawfully collected', 'addresses', 'profile photographs', 'membership details', 'attendance', 'appointment history', 'purchase history', 'invoices', 'outstanding balances', 'loyalty information', 'communication history', 'notes entered by the business'] },
+      { title: 'Employee and Trainer Information', paragraphs: ['Depending on the modules used:'], bullets: ['names', 'contact details', 'job roles', 'schedules', 'attendance', 'permissions', 'performance or operational records', 'payroll-related information where enabled'] },
+      { title: 'Lead and CRM Information', bullets: ['prospect information', 'enquiry details', 'lead source', 'sales stage', 'follow-ups', 'communication logs', 'sales representative details'] },
+      { title: 'Transaction Information', paragraphs: ['We may process:'], bullets: ['invoice details', 'payment status', 'transaction identifiers', 'subscription records', 'refund records', 'payment gateway references'], paragraphsAfter: ['Full payment card information is generally processed by third-party payment providers rather than directly stored by Syncfyre.'] },
+      { title: 'Device and Technical Information', paragraphs: ['We may automatically collect:'], bullets: ['IP address', 'browser', 'operating system', 'device information', 'session information', 'timestamps', 'login activity', 'diagnostic information', 'crash logs', 'security logs', 'usage information'] },
+      { title: 'Communications', paragraphs: ['When you contact us, we may process:'], bullets: ['emails', 'chat messages', 'support tickets', 'calls', 'feedback', 'support recordings where lawfully made and appropriately notified'] },
+      { title: 'Integration Data', paragraphs: ['Where customers activate integrations, we may process information provided through:'], bullets: ['payment gateways', 'WhatsApp services', 'SMS providers', 'email providers', 'biometric/attendance systems', 'APIs', 'calendars', 'accounting applications', 'access-control devices', 'other connected services'] },
+    ],
+  },
+  { title: '3. Why We Process Information', paragraphs: ['We may use personal data to:'], bullets: ['create and operate accounts', 'provide Syncfyre services', 'authenticate users', 'manage subscriptions', 'enable billing', 'provide customer support', 'maintain memberships', 'operate appointments', 'track attendance', 'manage CRM records', 'enable automation', 'deliver authorized communications', 'generate business reports', 'provide analytics', 'integrate third-party services', 'prevent fraud', 'detect security threats', 'maintain logs', 'investigate misuse', 'improve performance', 'develop features', 'comply with legal requirements', 'enforce agreements', 'resolve disputes', 'communicate service updates'], paragraphsAfter: ['Where required by applicable law, processing will be based on appropriate consent, legitimate permitted uses, contractual necessity, legal obligations, or other recognized grounds.'] } as PolicySection & { paragraphsAfter?: string[] },
+  { title: '4. Consent', paragraphs: ['Where consent is required, it should be:'], bullets: ['informed', 'specific', 'freely given', 'capable of being withdrawn', 'provided through an appropriate affirmative action'], paragraphsAfter: ['Withdrawal of consent does not necessarily invalidate processing lawfully performed before withdrawal.', 'Certain services may no longer function if information necessary to provide those services can no longer be processed.'] } as PolicySection & { paragraphsAfter?: string[] },
+  { title: '5. Customer-Controlled Data', paragraphs: ['A business using Syncfyre may determine:'], bullets: ['what customer information it collects', 'why it collects the information', 'how long it retains it', 'which employees can access it', 'which communications it sends', 'which integrations it enables'], paragraphsAfter: ['Requests regarding records held by a particular gym, salon, clinic, retailer, restaurant, or other Syncfyre customer may need to be directed to that business first.'] } as PolicySection & { paragraphsAfter?: string[] },
+  { title: '6. WhatsApp, SMS, Email and Marketing Data', paragraphs: ['Where Syncfyre enables communication on behalf of customers, contact details and communication data may be processed to facilitate authorized messages.', 'Businesses are responsible for obtaining legally required permission before sending promotional or marketing communications.', 'Recipients should be provided appropriate ways to opt out where required.'] },
+  { title: '7. Biometric and Attendance Information', paragraphs: ['Certain Syncfyre deployments may integrate with biometric, face-recognition, fingerprint, RFID, QR, or access-control systems.', 'Actual biometric templates may be processed primarily by the relevant device or third-party system, depending on implementation.', 'Customers deploying such technology are responsible for obtaining legally required permissions and notices.', 'Syncfyre should not be used to collect biometric information unless the deploying organization has assessed and satisfied applicable legal requirements.'] },
+  { title: '8. Artificial Intelligence and Analytics', paragraphs: ['We may use automation, machine learning, artificial intelligence, or analytical systems to provide features such as:'], bullets: ['summaries', 'business insights', 'customer segmentation', 'recommendations', 'predictions', 'lead prioritization', 'automated responses', 'workflow suggestions'], paragraphsAfter: ['Where third-party AI providers are used, information provided to those services will be handled according to applicable contractual and privacy safeguards.', 'Customers should avoid entering unnecessarily sensitive information into AI features.'] } as PolicySection & { paragraphsAfter?: string[] },
+  { title: '9. Sharing of Information', paragraphs: ['We may share information with service providers where necessary to provide Syncfyre, including providers of:'], bullets: ['cloud hosting', 'database infrastructure', 'email', 'SMS', 'WhatsApp services', 'payment processing', 'analytics', 'monitoring', 'cybersecurity', 'customer support', 'artificial intelligence', 'backup services', 'infrastructure services'], paragraphsAfter: ['Such providers should receive information only as necessary to perform relevant services and subject to appropriate agreements.'] } as PolicySection & { paragraphsAfter?: string[] },
+  { title: '10. Legal Disclosure', paragraphs: ['Information may be disclosed where reasonably necessary to:'], bullets: ['comply with applicable law', 'comply with a court order', 'respond to lawful governmental requests', 'investigate fraud', 'protect users', 'protect Synckraft', 'enforce agreements', 'establish or defend legal claims', 'respond to an emergency involving safety or security'] },
+  { title: '11. Business Transfers', paragraphs: ['If Synckraft undergoes a merger, acquisition, restructuring, financing, sale of assets, or similar corporate transaction, relevant information may be transferred subject to applicable confidentiality and data-protection obligations.'] },
+  { title: '12. International Processing', paragraphs: ['Some technology, cloud, communication, analytics, or integration providers may process information outside the state or country where the user is located.', 'Where required, we will seek to apply appropriate contractual, technical, organizational, or legal safeguards for such transfers.'] },
+  { title: '13. Data Security', paragraphs: ['We use reasonable administrative, organizational, and technical measures designed to protect information from:'], bullets: ['unauthorized access', 'unauthorized disclosure', 'loss', 'alteration', 'misuse', 'destruction'], paragraphsAfter: ['Measures may include, where appropriate:'], bulletsAfter: ['authentication', 'access controls', 'encrypted communications', 'logging', 'database protections', 'backups', 'monitoring', 'role-based permissions', 'secure infrastructure', 'security updates'], paragraphsEnd: ['No online system can guarantee absolute security.'] } as PolicySection & { paragraphsAfter?: string[]; bulletsAfter?: string[]; paragraphsEnd?: string[] },
+  { title: '14. Data Retention', paragraphs: ['We retain information only for as long as reasonably required for:'], bullets: ['providing services', 'maintaining business records', 'customer instructions', 'contractual obligations', 'backups', 'dispute resolution', 'fraud prevention', 'security', 'taxation', 'accounting', 'legal or regulatory compliance'], paragraphsAfter: ['Retention periods may differ depending on the type of information and applicable contractual or legal requirements.', 'Data may subsequently be deleted, anonymized, or retained where legally required.'] } as PolicySection & { paragraphsAfter?: string[] },
+  { title: '15. Your Rights', paragraphs: ['Subject to applicable law, individuals may have rights to:'], bullets: ['obtain information about processing', 'request access to personal data', 'request correction', 'request updating', 'request deletion or erasure', 'withdraw consent', 'raise grievances', 'nominate another individual where applicable', 'request cessation of certain processing where legally available'], paragraphsAfter: ['Identity verification may be required before fulfilling requests.', 'Rights may be restricted where retention or processing is required by law.'] } as PolicySection & { paragraphsAfter?: string[] },
+  { title: '16. Account Data Requests', paragraphs: ['Business administrators may be able to access, update, correct, export, or delete certain information directly through Syncfyre.', 'For information controlled by a Syncfyre customer, individuals may be directed to the relevant business.'] },
+  { title: '17. Cookies and Similar Technologies', paragraphs: ['Our website or applications may use cookies, local storage, session technologies, or similar mechanisms for:'], bullets: ['login sessions', 'preferences', 'security', 'analytics', 'performance', 'functionality'], paragraphsAfter: ['Where legally required, consent choices may be provided for non-essential cookies.'] } as PolicySection & { paragraphsAfter?: string[] },
+  { title: '18. Children’s Information', paragraphs: ['Syncfyre is primarily a business software platform and is not intended to be independently operated by children.', 'Certain customers such as gyms, academies, clinics, or other service businesses may maintain records relating to minors.', 'The relevant business is responsible for obtaining appropriate parental or guardian permission where required under applicable law.'] },
+  { title: '19. Third-Party Links', paragraphs: ['Syncfyre may contain links to or integrations with third-party sites and services.', 'Their privacy practices are governed by their own policies, and Synckraft is not responsible for those independent practices.'] },
+  { title: '20. Changes to This Privacy Policy', paragraphs: ['We may update this Privacy Policy because of:'], bullets: ['regulatory changes', 'changes to our technology', 'new integrations', 'security requirements', 'changes to our services'], paragraphsAfter: ['The latest version will display the revised “Last Updated” date.', 'Where legally required, we may provide additional notice regarding material changes.'] } as PolicySection & { paragraphsAfter?: string[] },
+  { title: '21. Data Protection and Grievance Contact', paragraphs: ['For privacy questions, requests, or grievances, contact:', 'Synckraft Technologies Pvt. Ltd.\nProduct: Syncfyre\nGrievance / Privacy Contact: Asiya Shaikh\nEmail: asiya@synckraft.in\nAddress: 414, 4th Floor, Daga Plazzo Biyani Sqaure, opp. Dmart Camp, Amravati, Maharashtra 444602\nPhone: 9867799655', 'Please include sufficient information to identify the account or business involved without sending unnecessary sensitive data.'] },
+  { title: '22. Applicable Law', paragraphs: ['This Privacy Policy will be interpreted according to applicable Indian data-protection, information-technology, consumer-protection, and other relevant laws and regulations.'] },
+];
+
+type ExtendedSection = PolicySection & { paragraphsAfter?: string[]; bulletsAfter?: string[]; paragraphsEnd?: string[] };
+
+export const PrivacyPolicyPage: React.FC<{ onNavigate: (pageId: string) => void }> = ({ onNavigate }) => (
+  <div className="legal-document relative overflow-hidden py-12 sm:py-16 lg:py-20">
+    <div className="pointer-events-none absolute left-0 top-0 h-80 w-80 rounded-full bg-[#e14024]/10 blur-3xl" />
+    <div className="legal-document-wrap mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <button onClick={() => onNavigate('home')} className="mb-10 inline-flex items-center gap-2 text-sm font-bold text-slate-600 transition-colors hover:text-[#e14024]">
+        <ArrowLeft className="h-4 w-4" /> Back to Home
+      </button>
+
+      <header className="legal-document-header relative mb-12 overflow-hidden rounded-3xl px-6 py-10 sm:px-10 sm:py-14">
+        <div className="absolute -right-20 -top-24 h-64 w-64 rounded-full bg-[#e14024]/30 blur-3xl" />
+        <div className="relative">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-orange-200"><ShieldCheck className="h-4 w-4" /> Legal</div>
+          <h1 className="text-4xl font-black tracking-tight sm:text-6xl">Privacy Policy</h1>
+          <p className="mt-4 text-base text-slate-300 sm:text-lg">Syncfyre — Powered by Synckraft Technologies Pvt. Ltd.</p>
+          <div className="mt-8 flex flex-col gap-2 text-sm text-slate-300 sm:flex-row sm:gap-8"><span><strong className="text-white">Last Updated:</strong> 27 August 2026</span><span><strong className="text-white">Effective Date:</strong> 27 August 2026</span></div>
+        </div>
+      </header>
+
+      <article className="legal-document-body rounded-3xl px-5 py-8 sm:px-10 sm:py-12">
+        <div className="legal-prose prose prose-slate max-w-none prose-p:leading-8 prose-li:my-1 prose-headings:scroll-mt-24 prose-headings:font-black prose-h2:mt-12 prose-h2:border-t prose-h2:border-slate-100 prose-h2:pt-8 prose-h2:text-2xl prose-h3:mt-8 prose-h3:text-lg prose-h3:text-[#d13b22]">
+          <p>Synckraft Technologies Pvt. Ltd. (“Synckraft”, “Syncfyre”, “we”, “our”, or “us”) respects your privacy and is committed to responsibly handling personal data processed through the Syncfyre platform, applications, websites, integrations, and related services.</p>
+          <p>This Privacy Policy explains what information we may collect, why we use it, how it may be shared, and the choices available to individuals.</p>
+          {policySections.map((section) => { const extended = section as ExtendedSection; return <section key={section.title}><h2>{section.title}</h2>{section.paragraphs?.map((p) => <p key={p} className={p.includes('\n') ? 'whitespace-pre-line' : undefined}>{p}</p>)}{section.subsections?.map((subsection) => <div key={subsection.title}><h3>{subsection.title}</h3>{subsection.paragraphs?.map((p) => <p key={p}>{p}</p>)}{subsection.bullets && <ul>{subsection.bullets.map((item) => <li key={item}>{item};</li>)}</ul>}{subsection.paragraphsAfter?.map((p) => <p key={p}>{p}</p>)}</div>)}{section.bullets && <ul>{section.bullets.map((item) => <li key={item}>{item};</li>)}</ul>}{section.paragraphsAfter?.map((p) => <p key={p}>{p}</p>)}{extended.bulletsAfter && <ul>{extended.bulletsAfter.map((item) => <li key={item}>{item};</li>)}</ul>}{extended.paragraphsEnd?.map((p) => <p key={p}>{p}</p>)}</section>; })}
+        </div>
+      </article>
+    </div>
+  </div>
+);
